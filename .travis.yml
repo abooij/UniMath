@@ -2,12 +2,13 @@
 # ocaml and coq are not on the list of languages:
 language:       generic
 sudo: 		false
-# "trusty" is the most modern release of Ubuntu supported
 dist: 		trusty
 git:
   submodules:   false
 cache:
   apt: true
+  directories:
+    - ~/coq.cache
 addons:
   apt:
     packages:
@@ -33,8 +34,18 @@ env:
   - PACKAGES=Tactics BUILD_COQIDE=yes BUILD_ALSO=TAGS
   - PACKAGES=Folds
   - FOUNDATIONS_CHANGE_ERROR=yes BUILD_ALSO="check-for-change-to-Foundations enforce-listing-of-proof-files"
+before_install:
+  - touch ~/coq.cache/something
+  - git submodule update --init sub/coq
+  - cp -af ~/coq.cache/* sub/coq/
+  - git submodule foreach --recursive git reset --hard
 # building Coq in a separate stage folds up the output in the log:
-before_script:
+install:
+  - ls sub/coq/bin
   - time make build-coq
 script:
   - time make TIMECMD=time $PACKAGES $BUILD_ALSO FOUNDATIONS_CHANGE_ERROR=$FOUNDATIONS_CHANGE_ERROR
+before_cache:
+  - rm -f sub/coq/.git sub/coq/bin/coqc
+  - cp -af sub/coq/* ~/coq.cache
+  - ls sub/coq sub/coq/bin ~/coq.cache
