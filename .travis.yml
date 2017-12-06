@@ -22,12 +22,12 @@ env:
   - FOUNDATIONS_CHANGE_ERROR=yes BUILD_ALSO="check-for-change-to-Foundations enforce-listing-of-proof-files"
 # building Coq in a separate stage folds up the output in the log:
 before_install:
-  - docker run -d --name ubuntu-test -v $(pwd):/travis ubuntu:artful tail -f /dev/null
+  - docker run -d --name ubuntu-test -v $(pwd):/travis ocaml/ocaml:ubuntu-17.10 tail -f /dev/null
   - docker ps
 install:
   - docker exec -t ubuntu-test bash -c "
     apt-get update;
-    apt-get install -y emacs coq coqide build-essential
+    apt-get install -y emacs coq coqide
     "
 script:
   - docker exec -t ubuntu-test bash -c "
