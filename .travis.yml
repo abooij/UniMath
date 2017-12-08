@@ -31,8 +31,23 @@ env:
   - PACKAGES=Tactics BUILD_COQIDE=yes BUILD_ALSO=TAGS
   - PACKAGES=Folds
   - FOUNDATIONS_CHANGE_ERROR=yes BUILD_ALSO="check-for-change-to-Foundations enforce-listing-of-proof-files"
+  - BUILD_ALSO="html" DEPLOY=yes # build in parallel since we already know it compiles
+# The last stage builds and deploys the documentation, so this is not
+# part of CI.  Hence, we mark the build as "passed" even if we still
+# have to deploy documentation
+matrix:
+  fast_finish: true
+  allow_failures:
+    - env: BUILD_ALSO="html" DEPLOY=yes
 # building Coq in a separate stage folds up the output in the log:
 before_script:
   - time make build-coq
 script:
   - time make TIMECMD=time $PACKAGES $BUILD_ALSO FOUNDATIONS_CHANGE_ERROR=$FOUNDATIONS_CHANGE_ERROR
+deploy:
+  provider: script
+  script: ./deploy_docs.sh
+  skip_cleanup: true
+  on:
+    branch: travis-coqdoc
+    condition: $DEPLOY = yes
