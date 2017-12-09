@@ -1,0 +1,216 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="coqdoc.css" rel="stylesheet" type="text/css" />
+<title>UniMath.CategoryTheory.categories.StandardCategories</title>
+</head>
+
+<body>
+
+<div id="page">
+
+<div id="header">
+</div>
+
+<div id="main">
+
+<h1 class="libtitle">Library UniMath.CategoryTheory.categories.StandardCategories</h1>
+
+<div class="code">
+
+<br/>
+<span class="id" title="keyword">Require</span> <span class="id" title="keyword">Import</span> <a class="idref" href="UniMath.CategoryTheory.Categories.html#"><span class="id" title="library">UniMath.CategoryTheory.Categories</span></a><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="idref" href="UniMath.Foundations.Sets.html#"><span class="id" title="library">UniMath.Foundations.Sets</span></a>.<br/>
+<span class="id" title="keyword">Require</span> <span class="id" title="keyword">Import</span> <a class="idref" href="UniMath.CategoryTheory.functor_categories.html#"><span class="id" title="library">UniMath.CategoryTheory.functor_categories</span></a>.<br/>
+
+<br/>
+<span class="id" title="keyword">Local Open</span> <span class="id" title="keyword">Scope</span> <span class="id" title="var">cat</span>.<br/>
+
+<br/>
+<span class="id" title="keyword">Definition</span> <a name="compose'"><span class="id" title="definition">compose'</span></a> { <span class="id" title="var">C</span>:<a class="idref" href="UniMath.CategoryTheory.Categories.html#precategory_data"><span class="id" title="definition">precategory_data</span></a> } { <span class="id" title="var">a</span> <span class="id" title="var">b</span> <span class="id" title="var">c</span>:<a class="idref" href="UniMath.CategoryTheory.Categories.html#ob"><span class="id" title="definition">ob</span></a> <a class="idref" href="UniMath.CategoryTheory.categories.StandardCategories.html#C"><span class="id" title="variable">C</span></a> }<br/>
+&nbsp;&nbsp;(<span class="id" title="var">g</span>:<a class="idref" href="UniMath.CategoryTheory.categories.StandardCategories.html#b"><span class="id" title="variable">b</span></a> <a class="idref" href="UniMath.CategoryTheory.Categories.html#05c8c1ce7d2d8559287cc88a3a5efc73"><span class="id" title="notation">--&gt;</span></a> <a class="idref" href="UniMath.CategoryTheory.categories.StandardCategories.html#c"><span class="id" title="variable">c</span></a>) (<span class="id" title="var">f</span>:<a class="idref" href="UniMath.CategoryTheory.categories.StandardCategories.html#a"><span class="id" title="variable">a</span></a> <a class="idref" href="UniMath.CategoryTheory.Categories.html#05c8c1ce7d2d8559287cc88a3a5efc73"><span class="id" title="notation">--&gt;</span></a> <a class="idref" href="UniMath.CategoryTheory.categories.StandardCategories.html#b"><span class="id" title="variable">b</span></a>) : <a class="idref" href="UniMath.CategoryTheory.categories.StandardCategories.html#a"><span class="id" title="variable">a</span></a> <a class="idref" href="UniMath.CategoryTheory.Categories.html#05c8c1ce7d2d8559287cc88a3a5efc73"><span class="id" title="notation">--&gt;</span></a> <a class="idref" href="UniMath.CategoryTheory.categories.StandardCategories.html#c"><span class="id" title="variable">c</span></a>.<br/>
+<span class="id" title="keyword">Proof</span>. <span class="id" title="tactic">intros</span>. <span class="id" title="tactic">exact</span> (<a class="idref" href="UniMath.CategoryTheory.Categories.html#compose"><span class="id" title="definition">compose</span></a> <span class="id" title="var">f</span> <span class="id" title="var">g</span>). <span class="id" title="keyword">Defined</span>.<br/>
+
+<br/>
+</div>
+
+<div class="doc">
+<a name="lab1233"></a><h1 class="section">The precategory of types of a fixed universe</h1>
+
+</div>
+<div class="code">
+
+<br/>
+<span class="id" title="keyword">Definition</span> <a name="type_precat"><span class="id" title="definition">type_precat</span></a> : <a class="idref" href="UniMath.CategoryTheory.Categories.html#precategory"><span class="id" title="definition">precategory</span></a>.<br/>
+<span class="id" title="keyword">Proof</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="var">use</span> <a class="idref" href="UniMath.CategoryTheory.Categories.html#mk_precategory"><span class="id" title="definition">mk_precategory</span></a>.<br/>
+&nbsp;&nbsp;- <span class="id" title="var">use</span> <a class="idref" href="UniMath.Foundations.Preamble.html#tpair"><span class="id" title="constructor">tpair</span></a>; <span class="id" title="var">use</span> <a class="idref" href="UniMath.Foundations.Preamble.html#tpair"><span class="id" title="constructor">tpair</span></a>.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;+ <span class="id" title="tactic">exact</span> <a class="idref" href="UniMath.Foundations.Preamble.html#UU"><span class="id" title="definition">UU</span></a>.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;+ <span class="id" title="tactic">exact</span> (<a class="idref" href="UniMath.Foundations.Preamble.html#e347aba07034a66189f14f85f0430e87"><span class="id" title="notation">λ</span></a> <span class="id" title="var">X</span> <span class="id" title="var">Y</span><a class="idref" href="UniMath.Foundations.Preamble.html#e347aba07034a66189f14f85f0430e87"><span class="id" title="notation">,</span></a> <a class="idref" href="UniMath.CategoryTheory.categories.StandardCategories.html#X"><span class="id" title="variable">X</span></a> <a class="idref" href="http://coq.inria.fr/distrib/8.6.1/stdlib/Coq.Init.Logic.html#d43e996736952df71ebeeae74d10a287"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="UniMath.CategoryTheory.categories.StandardCategories.html#Y"><span class="id" title="variable">Y</span></a>).<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;+ <span class="id" title="tactic">exact</span> (<a class="idref" href="UniMath.Foundations.Preamble.html#e347aba07034a66189f14f85f0430e87"><span class="id" title="notation">λ</span></a> <span class="id" title="var">X</span><a class="idref" href="UniMath.Foundations.Preamble.html#e347aba07034a66189f14f85f0430e87"><span class="id" title="notation">,</span></a> <a class="idref" href="UniMath.Foundations.PartA.html#idfun"><span class="id" title="definition">idfun</span></a> <a class="idref" href="UniMath.CategoryTheory.categories.StandardCategories.html#X"><span class="id" title="variable">X</span></a>).<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;+ <span class="id" title="tactic">exact</span> (<a class="idref" href="UniMath.Foundations.Preamble.html#e347aba07034a66189f14f85f0430e87"><span class="id" title="notation">λ</span></a> <span class="id" title="var">X</span> <span class="id" title="var">Y</span> <span class="id" title="var">Z</span> <span class="id" title="var">f</span> <span class="id" title="var">g</span><a class="idref" href="UniMath.Foundations.Preamble.html#e347aba07034a66189f14f85f0430e87"><span class="id" title="notation">,</span></a> <a class="idref" href="UniMath.Foundations.PartA.html#funcomp"><span class="id" title="definition">funcomp</span></a> <a class="idref" href="UniMath.CategoryTheory.categories.StandardCategories.html#f"><span class="id" title="variable">f</span></a> <a class="idref" href="UniMath.CategoryTheory.categories.StandardCategories.html#g"><span class="id" title="variable">g</span></a>).<br/>
+&nbsp;&nbsp;- <span class="id" title="tactic">repeat</span> <span class="id" title="tactic">split</span>; <span class="id" title="tactic">intros</span>; <span class="id" title="tactic">apply</span> <a class="idref" href="UniMath.Foundations.Preamble.html#idpath"><span class="id" title="abbreviation">idpath</span></a>.<br/>
+<span class="id" title="keyword">Defined</span>.<br/>
+
+<br/>
+</div>
+
+<div class="doc">
+<a name="lab1234"></a><h3 class="section">the path groupoid</h3>
+
+</div>
+<div class="code">
+
+<br/>
+<span class="id" title="keyword">Definition</span> <a name="is_groupoid"><span class="id" title="definition">is_groupoid</span></a> (<span class="id" title="var">C</span> : <a class="idref" href="UniMath.CategoryTheory.Categories.html#category"><span class="id" title="definition">category</span></a>) :=<br/>
+&nbsp;&nbsp;<a class="idref" href="UniMath.Foundations.Preamble.html#a0a086f1dd84e2a3eb74369525d648f8"><span class="id" title="notation">∏</span></a> <span class="id" title="var">a</span> <span class="id" title="var">b</span> : <a class="idref" href="UniMath.CategoryTheory.Categories.html#ob"><span class="id" title="definition">ob</span></a> <a class="idref" href="UniMath.CategoryTheory.categories.StandardCategories.html#C"><span class="id" title="variable">C</span></a><a class="idref" href="UniMath.Foundations.Preamble.html#a0a086f1dd84e2a3eb74369525d648f8"><span class="id" title="notation">,</span></a> <a class="idref" href="UniMath.Foundations.PartA.html#isweq"><span class="id" title="definition">isweq</span></a> (<span class="id" title="keyword">fun</span> <span class="id" title="var">p</span> : <a class="idref" href="UniMath.CategoryTheory.categories.StandardCategories.html#a"><span class="id" title="variable">a</span></a> <a class="idref" href="UniMath.Foundations.Preamble.html#1c39bf18749e5cc609e83c0a0ba5a372"><span class="id" title="notation">=</span></a> <a class="idref" href="UniMath.CategoryTheory.categories.StandardCategories.html#b"><span class="id" title="variable">b</span></a> =&gt; <a class="idref" href="UniMath.CategoryTheory.Categories.html#idtomor"><span class="id" title="definition">idtomor</span></a> <a class="idref" href="UniMath.CategoryTheory.categories.StandardCategories.html#a"><span class="id" title="variable">a</span></a> <a class="idref" href="UniMath.CategoryTheory.categories.StandardCategories.html#b"><span class="id" title="variable">b</span></a> <a class="idref" href="UniMath.CategoryTheory.categories.StandardCategories.html#p"><span class="id" title="variable">p</span></a>).<br/>
+
+<br/>
+<span class="id" title="keyword">Lemma</span> <a name="isaprop_is_groupoid"><span class="id" title="lemma">isaprop_is_groupoid</span></a> (<span class="id" title="var">C</span> : <a class="idref" href="UniMath.CategoryTheory.Categories.html#category"><span class="id" title="definition">category</span></a>) : <a class="idref" href="UniMath.Foundations.PartB.html#isaprop"><span class="id" title="definition">isaprop</span></a> (<a class="idref" href="UniMath.CategoryTheory.categories.StandardCategories.html#is_groupoid"><span class="id" title="definition">is_groupoid</span></a> <a class="idref" href="UniMath.CategoryTheory.categories.StandardCategories.html#C"><span class="id" title="variable">C</span></a>).<br/>
+<span class="id" title="keyword">Proof</span>. <span class="id" title="tactic">apply</span> <a class="idref" href="UniMath.Foundations.PartD.html#impred"><span class="id" title="lemma">impred</span></a>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">intro</span> <span class="id" title="var">a</span>. <span class="id" title="tactic">apply</span> <a class="idref" href="UniMath.Foundations.PartD.html#impred"><span class="id" title="lemma">impred</span></a>. <span class="id" title="tactic">intro</span> <span class="id" title="var">b</span>. <span class="id" title="tactic">apply</span> <a class="idref" href="UniMath.Foundations.PartD.html#isapropisweq"><span class="id" title="lemma">isapropisweq</span></a>. <span class="id" title="keyword">Qed</span>.<br/>
+
+<br/>
+<span class="id" title="keyword">Lemma</span> <a name="morphism_from_iso_is_incl"><span class="id" title="lemma">morphism_from_iso_is_incl</span></a> (<span class="id" title="var">C</span> : <a class="idref" href="UniMath.CategoryTheory.Categories.html#category"><span class="id" title="definition">category</span></a>) (<span class="id" title="var">a</span> <span class="id" title="var">b</span> : <a class="idref" href="UniMath.CategoryTheory.Categories.html#ob"><span class="id" title="definition">ob</span></a> <a class="idref" href="UniMath.CategoryTheory.categories.StandardCategories.html#C"><span class="id" title="variable">C</span></a>) :<br/>
+&nbsp;&nbsp;<a class="idref" href="UniMath.Foundations.PartB.html#isincl"><span class="id" title="definition">isincl</span></a> (<a class="idref" href="UniMath.CategoryTheory.Categories.html#morphism_from_iso"><span class="id" title="definition">morphism_from_iso</span></a> <a class="idref" href="UniMath.CategoryTheory.categories.StandardCategories.html#C"><span class="id" title="variable">C</span></a> <a class="idref" href="UniMath.CategoryTheory.categories.StandardCategories.html#a"><span class="id" title="variable">a</span></a> <a class="idref" href="UniMath.CategoryTheory.categories.StandardCategories.html#b"><span class="id" title="variable">b</span></a>).<br/>
+<span class="id" title="keyword">Proof</span>. <span class="id" title="tactic">intro</span> <span class="id" title="var">g</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">apply</span> (<a class="idref" href="UniMath.Foundations.PartB.html#isofhlevelweqf"><span class="id" title="lemma">isofhlevelweqf</span></a> <span class="id" title="var">_</span> (<a class="idref" href="UniMath.Foundations.PartA.html#ezweqpr1"><span class="id" title="definition">ezweqpr1</span></a> <span class="id" title="var">_</span> <span class="id" title="var">_</span>)). <span class="id" title="tactic">apply</span> <a class="idref" href="UniMath.CategoryTheory.Categories.html#isaprop_is_iso"><span class="id" title="lemma">isaprop_is_iso</span></a>. <span class="id" title="keyword">Qed</span>.<br/>
+
+<br/>
+<span class="id" title="keyword">Lemma</span> <a name="is_univalent_groupoid"><span class="id" title="lemma">is_univalent_groupoid</span></a> {<span class="id" title="var">C</span> : <a class="idref" href="UniMath.CategoryTheory.Categories.html#category"><span class="id" title="definition">category</span></a>}: <a class="idref" href="UniMath.CategoryTheory.categories.StandardCategories.html#is_groupoid"><span class="id" title="definition">is_groupoid</span></a> <a class="idref" href="UniMath.CategoryTheory.categories.StandardCategories.html#C"><span class="id" title="variable">C</span></a> <a class="idref" href="http://coq.inria.fr/distrib/8.6.1/stdlib/Coq.Init.Logic.html#d43e996736952df71ebeeae74d10a287"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="UniMath.CategoryTheory.Categories.html#is_univalent"><span class="id" title="definition">is_univalent</span></a> <a class="idref" href="UniMath.CategoryTheory.categories.StandardCategories.html#C"><span class="id" title="variable">C</span></a>.<br/>
+<span class="id" title="keyword">Proof</span>. <span class="id" title="tactic">intros</span> <span class="id" title="var">ig</span>  .<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">split</span>.<br/>
+&nbsp;&nbsp;{ <span class="id" title="tactic">intros</span> <span class="id" title="var">a</span> <span class="id" title="var">b</span>.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="var">use</span> (<a class="idref" href="UniMath.Foundations.PartB.html#isofhlevelff"><span class="id" title="lemma">isofhlevelff</span></a> 0 <a class="idref" href="UniMath.CategoryTheory.Categories.html#idtoiso"><span class="id" title="definition">idtoiso</span></a> (<a class="idref" href="UniMath.CategoryTheory.Categories.html#morphism_from_iso"><span class="id" title="definition">morphism_from_iso</span></a> <span class="id" title="var">_</span> <span class="id" title="var">_</span> <span class="id" title="var">_</span>)).<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;{ <span class="id" title="var">use</span> (<a class="idref" href="UniMath.Foundations.PartA.html#isweqhomot"><span class="id" title="lemma">isweqhomot</span></a> (<a class="idref" href="UniMath.CategoryTheory.Categories.html#idtomor"><span class="id" title="definition">idtomor</span></a> <span class="id" title="var">_</span> <span class="id" title="var">_</span>)).<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{ <span class="id" title="tactic">intro</span> <span class="id" title="var">p</span>. <span class="id" title="tactic">destruct</span> <span class="id" title="var">p</span>. <span class="id" title="tactic">reflexivity</span>. }<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{ <span class="id" title="tactic">apply</span> <span class="id" title="var">ig</span>. } }<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="tactic">apply</span> <a class="idref" href="UniMath.CategoryTheory.categories.StandardCategories.html#morphism_from_iso_is_incl"><span class="id" title="lemma">morphism_from_iso_is_incl</span></a>. }<br/>
+&nbsp;&nbsp;{ <span class="id" title="tactic">apply</span> <a class="idref" href="UniMath.CategoryTheory.Categories.html#homset_property"><span class="id" title="definition">homset_property</span></a>. }<br/>
+<span class="id" title="keyword">Qed</span>.<br/>
+
+<br/>
+<span class="id" title="keyword">Definition</span> <a name="path_pregroupoid"><span class="id" title="definition">path_pregroupoid</span></a> (<span class="id" title="var">X</span>:<a class="idref" href="UniMath.Foundations.Preamble.html#UU"><span class="id" title="definition">UU</span></a>) : <a class="idref" href="UniMath.Foundations.PartB.html#isofhlevel"><span class="id" title="definition">isofhlevel</span></a> 3 <a class="idref" href="UniMath.CategoryTheory.categories.StandardCategories.html#X"><span class="id" title="variable">X</span></a> <a class="idref" href="http://coq.inria.fr/distrib/8.6.1/stdlib/Coq.Init.Logic.html#d43e996736952df71ebeeae74d10a287"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="UniMath.CategoryTheory.Categories.html#category"><span class="id" title="definition">category</span></a>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">intros</span> <span class="id" title="var">iobj</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="var">use</span> (<a class="idref" href="UniMath.CategoryTheory.Categories.html#makecategory"><span class="id" title="definition">makecategory</span></a> <span class="id" title="var">X</span> (<a class="idref" href="UniMath.Foundations.Preamble.html#e347aba07034a66189f14f85f0430e87"><span class="id" title="notation">λ</span></a> <span class="id" title="var">x</span> <span class="id" title="var">y</span><a class="idref" href="UniMath.Foundations.Preamble.html#e347aba07034a66189f14f85f0430e87"><span class="id" title="notation">,</span></a> <a class="idref" href="UniMath.CategoryTheory.categories.StandardCategories.html#x"><span class="id" title="variable">x</span></a> <a class="idref" href="UniMath.Foundations.Preamble.html#1c39bf18749e5cc609e83c0a0ba5a372"><span class="id" title="notation">=</span></a> <a class="idref" href="UniMath.CategoryTheory.categories.StandardCategories.html#y"><span class="id" title="variable">y</span></a>)); <span class="id" title="tactic">simpl</span>.<br/>
+&nbsp;&nbsp;{ <span class="id" title="tactic">intros</span>. <span class="id" title="tactic">exact</span> (<span class="id" title="var">iobj</span> <span class="id" title="var">_</span> <span class="id" title="var">_</span>). }<br/>
+&nbsp;&nbsp;{ <span class="id" title="tactic">reflexivity</span>. }<br/>
+&nbsp;&nbsp;{ <span class="id" title="tactic">intros</span>. <span class="id" title="tactic">exact</span> (<span class="id" title="var">f</span> <a class="idref" href="UniMath.Foundations.PartA.html#c08910e202733241c0ff38b25be5a0c9"><span class="id" title="notation">@</span></a> <span class="id" title="var">g</span>). }<br/>
+&nbsp;&nbsp;{ <span class="id" title="tactic">reflexivity</span>. }<br/>
+&nbsp;&nbsp;{ <span class="id" title="tactic">intros</span>. <span class="id" title="tactic">apply</span> <a class="idref" href="UniMath.Foundations.PartA.html#pathscomp0rid"><span class="id" title="definition">pathscomp0rid</span></a>. }<br/>
+&nbsp;&nbsp;{ <span class="id" title="tactic">intros</span>. <span class="id" title="tactic">apply</span> <a class="idref" href="UniMath.Foundations.PartA.html#path_assoc"><span class="id" title="definition">path_assoc</span></a>. }<br/>
+<span class="id" title="keyword">Defined</span>.<br/>
+
+<br/>
+<span class="id" title="keyword">Lemma</span> <a name="is_groupoid_path_pregroupoid"><span class="id" title="lemma">is_groupoid_path_pregroupoid</span></a> (<span class="id" title="var">X</span>:<a class="idref" href="UniMath.Foundations.Preamble.html#UU"><span class="id" title="definition">UU</span></a>) (<span class="id" title="var">iobj</span>:<a class="idref" href="UniMath.Foundations.PartB.html#isofhlevel"><span class="id" title="definition">isofhlevel</span></a> 3 <a class="idref" href="UniMath.CategoryTheory.categories.StandardCategories.html#X"><span class="id" title="variable">X</span></a>) :<br/>
+&nbsp;&nbsp;<a class="idref" href="UniMath.CategoryTheory.categories.StandardCategories.html#is_groupoid"><span class="id" title="definition">is_groupoid</span></a> (<a class="idref" href="UniMath.CategoryTheory.categories.StandardCategories.html#path_pregroupoid"><span class="id" title="definition">path_pregroupoid</span></a> <a class="idref" href="UniMath.CategoryTheory.categories.StandardCategories.html#X"><span class="id" title="variable">X</span></a> <a class="idref" href="UniMath.CategoryTheory.categories.StandardCategories.html#iobj"><span class="id" title="variable">iobj</span></a>).<br/>
+<span class="id" title="keyword">Proof</span>. <span class="id" title="tactic">intros</span> <span class="id" title="var">a</span> <span class="id" title="var">b</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">assert</span> (<span class="id" title="var">k</span> : <a class="idref" href="UniMath.Foundations.PartA.html#idfun"><span class="id" title="definition">idfun</span></a> (<span class="id" title="var">a</span> <a class="idref" href="UniMath.Foundations.Preamble.html#1c39bf18749e5cc609e83c0a0ba5a372"><span class="id" title="notation">=</span></a> <span class="id" title="var">b</span>) <a class="idref" href="UniMath.Foundations.PartA.html#f0405b094115d6d72d95e62bcc4f5d50"><span class="id" title="notation">~</span></a> <a class="idref" href="UniMath.CategoryTheory.Categories.html#idtomor"><span class="id" title="definition">idtomor</span></a> <span class="id" title="var">a</span> <span class="id" title="var">b</span>). { <span class="id" title="tactic">intro</span> <span class="id" title="var">p</span>. <span class="id" title="tactic">destruct</span> <span class="id" title="var">p</span>. <span class="id" title="tactic">reflexivity</span>. }<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">apply</span> (<a class="idref" href="UniMath.Foundations.PartA.html#isweqhomot"><span class="id" title="lemma">isweqhomot</span></a> <span class="id" title="var">_</span> <span class="id" title="var">_</span> <span class="id" title="var">k</span>). <span class="id" title="tactic">apply</span> <a class="idref" href="UniMath.Foundations.PartA.html#idisweq"><span class="id" title="lemma">idisweq</span></a>. <span class="id" title="keyword">Qed</span>.<br/>
+
+<br/>
+<span class="id" title="keyword">Lemma</span> <a name="is_univalent_path_pregroupoid"><span class="id" title="lemma">is_univalent_path_pregroupoid</span></a> (<span class="id" title="var">X</span>:<a class="idref" href="UniMath.Foundations.Preamble.html#UU"><span class="id" title="definition">UU</span></a>) (<span class="id" title="var">i</span>:<a class="idref" href="UniMath.Foundations.PartB.html#isofhlevel"><span class="id" title="definition">isofhlevel</span></a> 3 <a class="idref" href="UniMath.CategoryTheory.categories.StandardCategories.html#X"><span class="id" title="variable">X</span></a>) :<br/>
+&nbsp;&nbsp;<a class="idref" href="UniMath.CategoryTheory.Categories.html#is_univalent"><span class="id" title="definition">is_univalent</span></a> (<a class="idref" href="UniMath.CategoryTheory.categories.StandardCategories.html#path_pregroupoid"><span class="id" title="definition">path_pregroupoid</span></a> <a class="idref" href="UniMath.CategoryTheory.categories.StandardCategories.html#X"><span class="id" title="variable">X</span></a> <a class="idref" href="UniMath.CategoryTheory.categories.StandardCategories.html#i"><span class="id" title="variable">i</span></a>).<br/>
+<span class="id" title="keyword">Proof</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">intros</span>; <span class="id" title="tactic">split</span>.<br/>
+&nbsp;&nbsp;- <span class="id" title="tactic">apply</span> <a class="idref" href="UniMath.CategoryTheory.categories.StandardCategories.html#is_univalent_groupoid"><span class="id" title="lemma">is_univalent_groupoid</span></a>. <span class="id" title="tactic">apply</span> <a class="idref" href="UniMath.CategoryTheory.categories.StandardCategories.html#is_groupoid_path_pregroupoid"><span class="id" title="lemma">is_groupoid_path_pregroupoid</span></a>.<br/>
+&nbsp;&nbsp;- <span class="id" title="tactic">apply</span> <span class="id" title="var">i</span>.<br/>
+<span class="id" title="keyword">Qed</span>.<br/>
+
+<br/>
+<span class="id" title="keyword">Definition</span> <a name="path_groupoid"><span class="id" title="definition">path_groupoid</span></a> (<span class="id" title="var">X</span>:<a class="idref" href="UniMath.Foundations.Preamble.html#UU"><span class="id" title="definition">UU</span></a>) : <a class="idref" href="UniMath.Foundations.PartB.html#isofhlevel"><span class="id" title="definition">isofhlevel</span></a> 3 <a class="idref" href="UniMath.CategoryTheory.categories.StandardCategories.html#X"><span class="id" title="variable">X</span></a> <a class="idref" href="http://coq.inria.fr/distrib/8.6.1/stdlib/Coq.Init.Logic.html#d43e996736952df71ebeeae74d10a287"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="UniMath.CategoryTheory.Categories.html#univalent_category"><span class="id" title="definition">univalent_category</span></a>.<br/>
+<span class="id" title="keyword">Proof</span>. <span class="id" title="tactic">intros</span> <span class="id" title="var">iobj</span>. <span class="id" title="tactic">apply</span> (<a class="idref" href="UniMath.CategoryTheory.Categories.html#univalent_category_pair"><span class="id" title="definition">univalent_category_pair</span></a> (<a class="idref" href="UniMath.CategoryTheory.categories.StandardCategories.html#path_pregroupoid"><span class="id" title="definition">path_pregroupoid</span></a> <span class="id" title="var">X</span> <span class="id" title="var">iobj</span>)).<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">apply</span> <a class="idref" href="UniMath.CategoryTheory.categories.StandardCategories.html#is_univalent_path_pregroupoid"><span class="id" title="lemma">is_univalent_path_pregroupoid</span></a>. <span class="id" title="keyword">Defined</span>.<br/>
+
+<br/>
+</div>
+
+<div class="doc">
+<a name="lab1235"></a><h3 class="section">the discrete univalent_category on n objects</h3>
+
+</div>
+<div class="code">
+
+<br/>
+<span class="id" title="keyword">Require</span> <span class="id" title="keyword">Import</span> <a class="idref" href="UniMath.Combinatorics.StandardFiniteSets.html#"><span class="id" title="library">UniMath.Combinatorics.StandardFiniteSets</span></a>.<br/>
+<span class="id" title="keyword">Definition</span> <a name="cat_n"><span class="id" title="definition">cat_n</span></a> (<span class="id" title="var">n</span>:<a class="idref" href="http://coq.inria.fr/distrib/8.6.1/stdlib/Coq.Init.Datatypes.html#nat"><span class="id" title="inductive">nat</span></a>): <a class="idref" href="UniMath.CategoryTheory.Categories.html#univalent_category"><span class="id" title="definition">univalent_category</span></a>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">apply</span> (<a class="idref" href="UniMath.CategoryTheory.categories.StandardCategories.html#path_groupoid"><span class="id" title="definition">path_groupoid</span></a> (<a class="idref" href="UniMath.Combinatorics.StandardFiniteSets.html#stn"><span class="id" title="definition">stn</span></a> <span class="id" title="var">n</span>)). <span class="id" title="tactic">apply</span> <a class="idref" href="UniMath.Foundations.PartB.html#hlevelntosn"><span class="id" title="lemma">hlevelntosn</span></a>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">apply</span> <a class="idref" href="UniMath.Combinatorics.StandardFiniteSets.html#isasetstn"><span class="id" title="lemma">isasetstn</span></a>. <span class="id" title="keyword">Defined</span>.<br/>
+<span class="id" title="keyword">Definition</span> <a name="is_discrete"><span class="id" title="definition">is_discrete</span></a> (<span class="id" title="var">C</span> : <a class="idref" href="UniMath.CategoryTheory.Categories.html#category"><span class="id" title="definition">category</span></a>) := <a class="idref" href="UniMath.Foundations.PartB.html#isaset"><span class="id" title="definition">isaset</span></a> (<a class="idref" href="UniMath.CategoryTheory.Categories.html#ob"><span class="id" title="definition">ob</span></a> <a class="idref" href="UniMath.CategoryTheory.categories.StandardCategories.html#C"><span class="id" title="variable">C</span></a>) <a class="idref" href="UniMath.Foundations.PartA.html#3c95d747e965984bdabf05c6b0e23759"><span class="id" title="notation">×</span></a> <a class="idref" href="UniMath.CategoryTheory.categories.StandardCategories.html#is_groupoid"><span class="id" title="definition">is_groupoid</span></a> <a class="idref" href="UniMath.CategoryTheory.categories.StandardCategories.html#C"><span class="id" title="variable">C</span></a>.<br/>
+
+<br/>
+<span class="id" title="keyword">Lemma</span> <a name="isaprop_is_discrete"><span class="id" title="lemma">isaprop_is_discrete</span></a> (<span class="id" title="var">C</span> : <a class="idref" href="UniMath.CategoryTheory.Categories.html#category"><span class="id" title="definition">category</span></a>) :<br/>
+&nbsp;&nbsp;<a class="idref" href="UniMath.Foundations.PartB.html#isaprop"><span class="id" title="definition">isaprop</span></a> (<a class="idref" href="UniMath.CategoryTheory.categories.StandardCategories.html#is_discrete"><span class="id" title="definition">is_discrete</span></a> <a class="idref" href="UniMath.CategoryTheory.categories.StandardCategories.html#C"><span class="id" title="variable">C</span></a>).<br/>
+<span class="id" title="keyword">Proof</span>. <span class="id" title="tactic">apply</span> <a class="idref" href="UniMath.Foundations.PartB.html#isofhleveltotal2"><span class="id" title="lemma">isofhleveltotal2</span></a>. <span class="id" title="tactic">apply</span> <a class="idref" href="UniMath.Foundations.PartD.html#isapropisaset"><span class="id" title="lemma">isapropisaset</span></a>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">intro</span> <span class="id" title="var">is</span>. <span class="id" title="tactic">apply</span> <a class="idref" href="UniMath.CategoryTheory.categories.StandardCategories.html#isaprop_is_groupoid"><span class="id" title="lemma">isaprop_is_groupoid</span></a>. <span class="id" title="keyword">Qed</span>.<br/>
+
+<br/>
+<span class="id" title="keyword">Lemma</span> <a name="is_discrete_cat_n"><span class="id" title="lemma">is_discrete_cat_n</span></a> (<span class="id" title="var">n</span>:<a class="idref" href="http://coq.inria.fr/distrib/8.6.1/stdlib/Coq.Init.Datatypes.html#nat"><span class="id" title="inductive">nat</span></a>) : <a class="idref" href="UniMath.CategoryTheory.categories.StandardCategories.html#is_discrete"><span class="id" title="definition">is_discrete</span></a> (<a class="idref" href="UniMath.CategoryTheory.categories.StandardCategories.html#cat_n"><span class="id" title="definition">cat_n</span></a> <a class="idref" href="UniMath.CategoryTheory.categories.StandardCategories.html#n"><span class="id" title="variable">n</span></a>).<br/>
+<span class="id" title="keyword">Proof</span>. <span class="id" title="tactic">split</span>. <span class="id" title="tactic">apply</span> <a class="idref" href="UniMath.Combinatorics.StandardFiniteSets.html#isasetstn"><span class="id" title="lemma">isasetstn</span></a>. <span class="id" title="tactic">apply</span> <a class="idref" href="UniMath.CategoryTheory.categories.StandardCategories.html#is_groupoid_path_pregroupoid"><span class="id" title="lemma">is_groupoid_path_pregroupoid</span></a>. <span class="id" title="keyword">Qed</span>.<br/>
+
+<br/>
+<span class="id" title="keyword">Definition</span> <a name="unit_category"><span class="id" title="definition">unit_category</span></a> : <a class="idref" href="UniMath.CategoryTheory.Categories.html#univalent_category"><span class="id" title="definition">univalent_category</span></a>.<br/>
+<span class="id" title="keyword">Proof</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="var">use</span> <a class="idref" href="UniMath.CategoryTheory.categories.StandardCategories.html#path_groupoid"><span class="id" title="definition">path_groupoid</span></a>.<br/>
+&nbsp;&nbsp;- <span class="id" title="tactic">exact</span> <a class="idref" href="http://coq.inria.fr/distrib/8.6.1/stdlib/Coq.Init.Datatypes.html#unit"><span class="id" title="inductive">unit</span></a>.<br/>
+&nbsp;&nbsp;- <span class="id" title="tactic">do</span> 2 (<span class="id" title="tactic">apply</span> <a class="idref" href="UniMath.Foundations.PartB.html#hlevelntosn"><span class="id" title="lemma">hlevelntosn</span></a>). <span class="id" title="tactic">apply</span> <a class="idref" href="UniMath.Foundations.PartB.html#isapropunit"><span class="id" title="definition">isapropunit</span></a>.<br/>
+<span class="id" title="keyword">Defined</span>.<br/>
+
+<br/>
+<span class="id" title="keyword">Section</span> <a name="functor"><span class="id" title="section">functor</span></a>.<br/>
+
+<br/>
+<span class="id" title="keyword">Variable</span> <a name="functor.A"><span class="id" title="variable">A</span></a> : <a class="idref" href="UniMath.CategoryTheory.Categories.html#precategory"><span class="id" title="definition">precategory</span></a>.<br/>
+
+<br/>
+<span class="id" title="keyword">Definition</span> <a name="functor_to_unit_data"><span class="id" title="definition">functor_to_unit_data</span></a> : <a class="idref" href="UniMath.CategoryTheory.functor_categories.html#functor_data"><span class="id" title="definition">functor_data</span></a> <a class="idref" href="UniMath.CategoryTheory.categories.StandardCategories.html#functor.A"><span class="id" title="variable">A</span></a> <a class="idref" href="UniMath.CategoryTheory.categories.StandardCategories.html#unit_category"><span class="id" title="definition">unit_category</span></a>.<br/>
+<span class="id" title="keyword">Proof</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">exists</span> (<a class="idref" href="UniMath.Foundations.Preamble.html#e347aba07034a66189f14f85f0430e87"><span class="id" title="notation">λ</span></a> <span class="id" title="var">_</span><a class="idref" href="UniMath.Foundations.Preamble.html#e347aba07034a66189f14f85f0430e87"><span class="id" title="notation">,</span></a> <a class="idref" href="http://coq.inria.fr/distrib/8.6.1/stdlib/Coq.Init.Datatypes.html#tt"><span class="id" title="constructor">tt</span></a>).<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">exact</span> (<a class="idref" href="UniMath.Foundations.Preamble.html#e347aba07034a66189f14f85f0430e87"><span class="id" title="notation">λ</span></a> <span class="id" title="var">_</span> <span class="id" title="var">_</span> <span class="id" title="var">_</span><a class="idref" href="UniMath.Foundations.Preamble.html#e347aba07034a66189f14f85f0430e87"><span class="id" title="notation">,</span></a> <a class="idref" href="UniMath.Foundations.Preamble.html#idpath"><span class="id" title="abbreviation">idpath</span></a> <span class="id" title="var">_</span> ).<br/>
+<span class="id" title="keyword">Defined</span>.<br/>
+
+<br/>
+<span class="id" title="keyword">Definition</span> <a name="is_functor_to_unit"><span class="id" title="definition">is_functor_to_unit</span></a> : <a class="idref" href="UniMath.CategoryTheory.functor_categories.html#is_functor"><span class="id" title="definition">is_functor</span></a> <a class="idref" href="UniMath.CategoryTheory.categories.StandardCategories.html#functor_to_unit_data"><span class="id" title="definition">functor_to_unit_data</span></a>.<br/>
+<span class="id" title="keyword">Proof</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">split</span>.<br/>
+&nbsp;&nbsp;- <span class="id" title="tactic">intro</span> <span class="id" title="var">a</span>. <span class="id" title="tactic">apply</span> <a class="idref" href="UniMath.Foundations.Preamble.html#idpath"><span class="id" title="abbreviation">idpath</span></a>.<br/>
+&nbsp;&nbsp;- <span class="id" title="tactic">intros</span> <span class="id" title="var">a</span> <span class="id" title="var">b</span> <span class="id" title="var">c</span> <span class="id" title="var">f</span> <span class="id" title="var">g</span> . <span class="id" title="tactic">apply</span> <a class="idref" href="UniMath.Foundations.Preamble.html#idpath"><span class="id" title="abbreviation">idpath</span></a>.<br/>
+<span class="id" title="keyword">Qed</span>.<br/>
+
+<br/>
+<span class="id" title="keyword">Definition</span> <a name="functor_to_unit"><span class="id" title="definition">functor_to_unit</span></a> : <a class="idref" href="UniMath.CategoryTheory.functor_categories.html#functor"><span class="id" title="definition">functor</span></a> <a class="idref" href="UniMath.CategoryTheory.categories.StandardCategories.html#functor.A"><span class="id" title="variable">A</span></a> <span class="id" title="var">_</span> := <span class="id" title="var">_</span> <a class="idref" href="UniMath.Foundations.Preamble.html#b3c458fcac779d3a49e028b136e17a32"><span class="id" title="notation">,,</span></a> <a class="idref" href="UniMath.CategoryTheory.categories.StandardCategories.html#is_functor_to_unit"><span class="id" title="definition">is_functor_to_unit</span></a>.<br/>
+
+<br/>
+<span class="id" title="keyword">Lemma</span> <a name="functor_to_unit_unique"><span class="id" title="lemma">functor_to_unit_unique</span></a> (<span class="id" title="var">F</span> : <a class="idref" href="UniMath.CategoryTheory.functor_categories.html#functor"><span class="id" title="definition">functor</span></a> <a class="idref" href="UniMath.CategoryTheory.categories.StandardCategories.html#functor.A"><span class="id" title="variable">A</span></a> <a class="idref" href="UniMath.CategoryTheory.categories.StandardCategories.html#unit_category"><span class="id" title="definition">unit_category</span></a>)<br/>
+&nbsp;&nbsp;: <a class="idref" href="UniMath.CategoryTheory.categories.StandardCategories.html#F"><span class="id" title="variable">F</span></a> <a class="idref" href="UniMath.Foundations.Preamble.html#1c39bf18749e5cc609e83c0a0ba5a372"><span class="id" title="notation">=</span></a> <a class="idref" href="UniMath.CategoryTheory.categories.StandardCategories.html#functor_to_unit"><span class="id" title="definition">functor_to_unit</span></a>.<br/>
+<span class="id" title="keyword">Proof</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">apply</span> <a class="idref" href="UniMath.CategoryTheory.functor_categories.html#functor_eq"><span class="id" title="lemma">functor_eq</span></a>.<br/>
+&nbsp;&nbsp;- <span class="id" title="tactic">apply</span> (<a class="idref" href="UniMath.CategoryTheory.Categories.html#homset_property"><span class="id" title="definition">homset_property</span></a> <a class="idref" href="UniMath.CategoryTheory.categories.StandardCategories.html#unit_category"><span class="id" title="definition">unit_category</span></a>).<br/>
+&nbsp;&nbsp;- <span class="id" title="var">use</span> <a class="idref" href="UniMath.Foundations.PartA.html#total2_paths_f"><span class="id" title="lemma">total2_paths_f</span></a>.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;+ <span class="id" title="tactic">apply</span> <a class="idref" href="UniMath.Foundations.UnivalenceAxiom.html#funextsec"><span class="id" title="definition">funextsec</span></a>. <span class="id" title="tactic">intro</span>. <span class="id" title="var">cbn</span>.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="tactic">apply</span> <a class="idref" href="UniMath.Foundations.PartB.html#proofirrelevance"><span class="id" title="lemma">proofirrelevance</span></a>.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="tactic">apply</span> <a class="idref" href="UniMath.Foundations.PartB.html#isapropunit"><span class="id" title="definition">isapropunit</span></a>.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;+ <span class="id" title="tactic">do</span> 3 (<span class="id" title="tactic">apply</span> <a class="idref" href="UniMath.Foundations.UnivalenceAxiom.html#funextsec"><span class="id" title="definition">funextsec</span></a>; <span class="id" title="tactic">intro</span>).<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="tactic">apply</span> <a class="idref" href="UniMath.Foundations.PartB.html#proofirrelevance"><span class="id" title="lemma">proofirrelevance</span></a>.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="tactic">simpl</span>.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="tactic">apply</span> <a class="idref" href="UniMath.Foundations.PartB.html#hlevelntosn"><span class="id" title="lemma">hlevelntosn</span></a>.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="tactic">apply</span> <a class="idref" href="UniMath.Foundations.PartB.html#isapropunit"><span class="id" title="definition">isapropunit</span></a>.<br/>
+<span class="id" title="keyword">Qed</span>.<br/>
+
+<br/>
+<span class="id" title="keyword">End</span> <a class="idref" href="UniMath.CategoryTheory.categories.StandardCategories.html#functor"><span class="id" title="section">functor</span></a>.<br/>
+
+<br/>
+</div>
+</div>
+
+<div id="footer">
+<hr/><a href="index.html">Index</a><hr/>This page has been generated by <a href="http://coq.inria.fr/">coqdoc</a>
+</div>
+
+</div>
+
+</body>
+</html>

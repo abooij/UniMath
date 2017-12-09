@@ -1,0 +1,175 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="coqdoc.css" rel="stylesheet" type="text/css" />
+<title>UniMath.CategoryTheory.equivalences_lemmas</title>
+</head>
+
+<body>
+
+<div id="page">
+
+<div id="header">
+</div>
+
+<div id="main">
+
+<h1 class="libtitle">Library UniMath.CategoryTheory.equivalences_lemmas</h1>
+
+<div class="code">
+</div>
+
+<div class="doc">
+**********************************************************
+
+<div class="paragraph"> </div>
+
+Benedikt Ahrens, Chris Kapulkin, Mike Shulman
+january 2013
+
+<div class="paragraph"> </div>
+
+Revised by Marco Maggesi, november 2017
+
+<div class="paragraph"> </div>
+
+
+<div class="paragraph"> </div>
+
+ **********************************************************
+
+<div class="paragraph"> </div>
+
+Contents :  Definition of adjunction
+
+<div class="paragraph"> </div>
+
+	    Definition of equivalence of precategories
+
+<div class="paragraph"> </div>
+
+	    Equivalence of categories yields weak equivalence
+            of object types
+
+<div class="paragraph"> </div>
+
+            A fully faithful and ess. surjective functor induces
+            equivalence of precategories, if the source
+            is a category.
+
+<div class="paragraph"> </div>
+
+
+</div>
+<div class="code">
+
+<br/>
+<span class="id" title="keyword">Require</span> <span class="id" title="keyword">Import</span> <a class="idref" href="UniMath.Foundations.PartD.html#"><span class="id" title="library">UniMath.Foundations.PartD</span></a>.<br/>
+<span class="id" title="keyword">Require</span> <span class="id" title="keyword">Import</span> <a class="idref" href="UniMath.CategoryTheory.Categories.html#"><span class="id" title="library">UniMath.CategoryTheory.Categories</span></a>.<br/>
+<span class="id" title="keyword">Require</span> <span class="id" title="keyword">Import</span> <a class="idref" href="UniMath.CategoryTheory.functor_categories.html#"><span class="id" title="library">UniMath.CategoryTheory.functor_categories</span></a>.<br/>
+<span class="id" title="keyword">Require</span> <span class="id" title="keyword">Import</span> <a class="idref" href="UniMath.CategoryTheory.Adjunctions.html#"><span class="id" title="library">UniMath.CategoryTheory.Adjunctions</span></a>.<br/>
+<span class="id" title="keyword">Require</span> <span class="id" title="keyword">Import</span> <a class="idref" href="UniMath.CategoryTheory.equivalences.html#"><span class="id" title="library">UniMath.CategoryTheory.equivalences</span></a>.<br/>
+
+<br/>
+<span class="id" title="keyword">Section</span> <a name="from_equiv_to_fully_faithful"><span class="id" title="section">from_equiv_to_fully_faithful</span></a>.<br/>
+
+<br/>
+<span class="id" title="keyword">Local Open</span> <span class="id" title="keyword">Scope</span> <span class="id" title="var">cat</span>.<br/>
+
+<br/>
+<span class="id" title="keyword">Variables</span> <a name="from_equiv_to_fully_faithful.A"><span class="id" title="variable">A</span></a> <a name="from_equiv_to_fully_faithful.B"><span class="id" title="variable">B</span></a> : <a class="idref" href="UniMath.CategoryTheory.Categories.html#precategory"><span class="id" title="definition">precategory</span></a>.<br/>
+<span class="id" title="keyword">Variable</span> <a name="from_equiv_to_fully_faithful.F"><span class="id" title="variable">F</span></a> : <a class="idref" href="UniMath.CategoryTheory.equivalences_lemmas.html#from_equiv_to_fully_faithful.A"><span class="id" title="variable">A</span></a> <a class="idref" href="UniMath.CategoryTheory.functor_categories.html#8656c13bf08b879d309091a4789366ed"><span class="id" title="notation">⟶</span></a> <a class="idref" href="UniMath.CategoryTheory.equivalences_lemmas.html#from_equiv_to_fully_faithful.B"><span class="id" title="variable">B</span></a>.<br/>
+<span class="id" title="keyword">Variable</span> <a name="from_equiv_to_fully_faithful.H"><span class="id" title="variable">H</span></a> : <a class="idref" href="UniMath.CategoryTheory.equivalences.html#adj_equivalence_of_precats"><span class="id" title="definition">adj_equivalence_of_precats</span></a> <a class="idref" href="UniMath.CategoryTheory.equivalences_lemmas.html#from_equiv_to_fully_faithful.F"><span class="id" title="variable">F</span></a>.<br/>
+
+<br/>
+<span class="id" title="keyword">Local</span> <span class="id" title="keyword">Definition</span> <a name="G"><span class="id" title="definition">G</span></a> : <a class="idref" href="UniMath.CategoryTheory.equivalences_lemmas.html#from_equiv_to_fully_faithful.B"><span class="id" title="variable">B</span></a> <a class="idref" href="UniMath.CategoryTheory.functor_categories.html#8656c13bf08b879d309091a4789366ed"><span class="id" title="notation">⟶</span></a> <a class="idref" href="UniMath.CategoryTheory.equivalences_lemmas.html#from_equiv_to_fully_faithful.A"><span class="id" title="variable">A</span></a> := <a class="idref" href="UniMath.CategoryTheory.equivalences.html#adj_equivalence_inv"><span class="id" title="definition">adj_equivalence_inv</span></a> <a class="idref" href="UniMath.CategoryTheory.equivalences_lemmas.html#from_equiv_to_fully_faithful.H"><span class="id" title="variable">H</span></a>.<br/>
+
+<br/>
+<span class="id" title="keyword">Local</span> <span class="id" title="keyword">Definition</span> <a name="eta"><span class="id" title="definition">eta</span></a> : <a class="idref" href="UniMath.Foundations.Preamble.html#a0a086f1dd84e2a3eb74369525d648f8"><span class="id" title="notation">∏</span></a> <span class="id" title="var">a</span> : <a class="idref" href="UniMath.CategoryTheory.equivalences_lemmas.html#from_equiv_to_fully_faithful.A"><span class="id" title="variable">A</span></a><a class="idref" href="UniMath.Foundations.Preamble.html#a0a086f1dd84e2a3eb74369525d648f8"><span class="id" title="notation">,</span></a> <a class="idref" href="UniMath.CategoryTheory.Categories.html#iso"><span class="id" title="definition">iso</span></a> <a class="idref" href="UniMath.CategoryTheory.equivalences_lemmas.html#a"><span class="id" title="variable">a</span></a> (<a class="idref" href="UniMath.CategoryTheory.equivalences_lemmas.html#G"><span class="id" title="definition">G</span></a> (<a class="idref" href="UniMath.CategoryTheory.equivalences_lemmas.html#from_equiv_to_fully_faithful.F"><span class="id" title="variable">F</span></a> <a class="idref" href="UniMath.CategoryTheory.equivalences_lemmas.html#a"><span class="id" title="variable">a</span></a>))<br/>
+&nbsp;&nbsp;:= <a class="idref" href="UniMath.CategoryTheory.equivalences.html#unit_pointwise_iso_from_adj_equivalence"><span class="id" title="definition">unit_pointwise_iso_from_adj_equivalence</span></a> <a class="idref" href="UniMath.CategoryTheory.equivalences_lemmas.html#from_equiv_to_fully_faithful.H"><span class="id" title="variable">H</span></a>.<br/>
+
+<br/>
+<span class="id" title="keyword">Local</span> <span class="id" title="keyword">Definition</span> <a name="eps"><span class="id" title="definition">eps</span></a> : <a class="idref" href="UniMath.Foundations.Preamble.html#a0a086f1dd84e2a3eb74369525d648f8"><span class="id" title="notation">∏</span></a> <span class="id" title="var">b</span> : <a class="idref" href="UniMath.CategoryTheory.equivalences_lemmas.html#from_equiv_to_fully_faithful.B"><span class="id" title="variable">B</span></a><a class="idref" href="UniMath.Foundations.Preamble.html#a0a086f1dd84e2a3eb74369525d648f8"><span class="id" title="notation">,</span></a> <a class="idref" href="UniMath.CategoryTheory.Categories.html#iso"><span class="id" title="definition">iso</span></a> (<a class="idref" href="UniMath.CategoryTheory.equivalences_lemmas.html#from_equiv_to_fully_faithful.F"><span class="id" title="variable">F</span></a> (<a class="idref" href="UniMath.CategoryTheory.equivalences_lemmas.html#G"><span class="id" title="definition">G</span></a> <a class="idref" href="UniMath.CategoryTheory.equivalences_lemmas.html#b"><span class="id" title="variable">b</span></a>)) <a class="idref" href="UniMath.CategoryTheory.equivalences_lemmas.html#b"><span class="id" title="variable">b</span></a><br/>
+&nbsp;&nbsp;:= <a class="idref" href="UniMath.CategoryTheory.equivalences.html#counit_pointwise_iso_from_adj_equivalence"><span class="id" title="definition">counit_pointwise_iso_from_adj_equivalence</span></a> <a class="idref" href="UniMath.CategoryTheory.equivalences_lemmas.html#from_equiv_to_fully_faithful.H"><span class="id" title="variable">H</span></a>.<br/>
+
+<br/>
+<span class="id" title="keyword">Definition</span> <a name="inverse"><span class="id" title="definition">inverse</span></a> {<span class="id" title="var">a</span> <span class="id" title="var">b</span>} (<span class="id" title="var">g</span> : <a class="idref" href="UniMath.CategoryTheory.equivalences_lemmas.html#from_equiv_to_fully_faithful.B"><span class="id" title="variable">B</span></a><a class="idref" href="UniMath.CategoryTheory.Categories.html#3039a08e9caa1a1b9c6c7ec5fbc357ec"><span class="id" title="notation">⟦</span></a><a class="idref" href="UniMath.CategoryTheory.equivalences_lemmas.html#from_equiv_to_fully_faithful.F"><span class="id" title="variable">F</span></a> <a class="idref" href="UniMath.CategoryTheory.equivalences_lemmas.html#a"><span class="id" title="variable">a</span></a><a class="idref" href="UniMath.CategoryTheory.Categories.html#3039a08e9caa1a1b9c6c7ec5fbc357ec"><span class="id" title="notation">,</span></a> <a class="idref" href="UniMath.CategoryTheory.equivalences_lemmas.html#from_equiv_to_fully_faithful.F"><span class="id" title="variable">F</span></a> <a class="idref" href="UniMath.CategoryTheory.equivalences_lemmas.html#b"><span class="id" title="variable">b</span></a><a class="idref" href="UniMath.CategoryTheory.Categories.html#3039a08e9caa1a1b9c6c7ec5fbc357ec"><span class="id" title="notation">⟧</span></a>) : <a class="idref" href="UniMath.CategoryTheory.equivalences_lemmas.html#from_equiv_to_fully_faithful.A"><span class="id" title="variable">A</span></a><a class="idref" href="UniMath.CategoryTheory.Categories.html#3039a08e9caa1a1b9c6c7ec5fbc357ec"><span class="id" title="notation">⟦</span></a><a class="idref" href="UniMath.CategoryTheory.equivalences_lemmas.html#a"><span class="id" title="variable">a</span></a><a class="idref" href="UniMath.CategoryTheory.Categories.html#3039a08e9caa1a1b9c6c7ec5fbc357ec"><span class="id" title="notation">,</span></a> <a class="idref" href="UniMath.CategoryTheory.equivalences_lemmas.html#b"><span class="id" title="variable">b</span></a><a class="idref" href="UniMath.CategoryTheory.Categories.html#3039a08e9caa1a1b9c6c7ec5fbc357ec"><span class="id" title="notation">⟧</span></a><br/>
+&nbsp;&nbsp;:= <a class="idref" href="UniMath.CategoryTheory.equivalences_lemmas.html#eta"><span class="id" title="definition">eta</span></a> <a class="idref" href="UniMath.CategoryTheory.equivalences_lemmas.html#a"><span class="id" title="variable">a</span></a> <a class="idref" href="UniMath.CategoryTheory.Categories.html#a93007328e3b775adf2fbefc77c43dac"><span class="id" title="notation">·</span></a> <a class="idref" href="UniMath.CategoryTheory.functor_categories.html#f9d39e9abcf2172e261db5a53b8f1205"><span class="id" title="notation">#</span></a><a class="idref" href="UniMath.CategoryTheory.equivalences_lemmas.html#G"><span class="id" title="definition">G</span></a> <a class="idref" href="UniMath.CategoryTheory.equivalences_lemmas.html#g"><span class="id" title="variable">g</span></a> <a class="idref" href="UniMath.CategoryTheory.Categories.html#a93007328e3b775adf2fbefc77c43dac"><span class="id" title="notation">·</span></a> <a class="idref" href="UniMath.CategoryTheory.Categories.html#inv_from_iso"><span class="id" title="definition">inv_from_iso</span></a> (<a class="idref" href="UniMath.CategoryTheory.equivalences_lemmas.html#eta"><span class="id" title="definition">eta</span></a> <a class="idref" href="UniMath.CategoryTheory.equivalences_lemmas.html#b"><span class="id" title="variable">b</span></a>).<br/>
+
+<br/>
+<span class="id" title="keyword">Lemma</span> <a name="inverse_is_inverse_1"><span class="id" title="lemma">inverse_is_inverse_1</span></a> <span class="id" title="var">a</span> <span class="id" title="var">b</span> (<span class="id" title="var">f</span> : <a class="idref" href="UniMath.CategoryTheory.equivalences_lemmas.html#a"><span class="id" title="variable">a</span></a> <a class="idref" href="UniMath.CategoryTheory.Categories.html#05c8c1ce7d2d8559287cc88a3a5efc73"><span class="id" title="notation">--&gt;</span></a> <a class="idref" href="UniMath.CategoryTheory.equivalences_lemmas.html#b"><span class="id" title="variable">b</span></a>) : <a class="idref" href="UniMath.CategoryTheory.equivalences_lemmas.html#inverse"><span class="id" title="definition">inverse</span></a> (<a class="idref" href="UniMath.CategoryTheory.functor_categories.html#f9d39e9abcf2172e261db5a53b8f1205"><span class="id" title="notation">#</span></a><a class="idref" href="UniMath.CategoryTheory.equivalences_lemmas.html#from_equiv_to_fully_faithful.F"><span class="id" title="variable">F</span></a> <a class="idref" href="UniMath.CategoryTheory.equivalences_lemmas.html#f"><span class="id" title="variable">f</span></a>) <a class="idref" href="UniMath.Foundations.Preamble.html#1c39bf18749e5cc609e83c0a0ba5a372"><span class="id" title="notation">=</span></a> <a class="idref" href="UniMath.CategoryTheory.equivalences_lemmas.html#f"><span class="id" title="variable">f</span></a>.<br/>
+<span class="id" title="keyword">Proof</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">unfold</span> <a class="idref" href="UniMath.CategoryTheory.equivalences_lemmas.html#inverse"><span class="id" title="definition">inverse</span></a>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">set</span> (<span class="id" title="var">H'</span> := <a class="idref" href="UniMath.CategoryTheory.functor_categories.html#nat_trans_ax"><span class="id" title="definition">nat_trans_ax</span></a>  (<a class="idref" href="UniMath.CategoryTheory.Adjunctions.html#adjunit"><span class="id" title="definition">adjunit</span></a> (<a class="idref" href="UniMath.Foundations.Preamble.html#pr1"><span class="id" title="projection">pr1</span></a> <a class="idref" href="UniMath.CategoryTheory.equivalences_lemmas.html#from_equiv_to_fully_faithful.H"><span class="id" title="variable">H</span></a>))).<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">simpl</span> <span class="id" title="keyword">in</span> <span class="id" title="var">H'</span>; <span class="id" title="tactic">rewrite</span> &lt;- <span class="id" title="var">H'</span>; <span class="id" title="tactic">clear</span> <span class="id" title="var">H'</span>; <span class="id" title="tactic">simpl</span> <span class="id" title="keyword">in</span> *.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">rewrite</span> &lt;- <a class="idref" href="UniMath.CategoryTheory.Categories.html#assoc"><span class="id" title="definition">assoc</span></a>.<br/>
+&nbsp;&nbsp;<span class="id" title="var">intermediate_path</span> (<span class="id" title="var">f</span> <a class="idref" href="UniMath.CategoryTheory.Categories.html#a93007328e3b775adf2fbefc77c43dac"><span class="id" title="notation">·</span></a> <a class="idref" href="UniMath.CategoryTheory.Categories.html#identity"><span class="id" title="definition">identity</span></a> <span class="id" title="var">_</span>).<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">apply</span> <a class="idref" href="UniMath.Foundations.PartA.html#maponpaths"><span class="id" title="definition">maponpaths</span></a>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">set</span> (<span class="id" title="var">H'</span> := <a class="idref" href="UniMath.CategoryTheory.Categories.html#iso_inv_after_iso"><span class="id" title="definition">iso_inv_after_iso</span></a> (<a class="idref" href="UniMath.CategoryTheory.equivalences_lemmas.html#eta"><span class="id" title="definition">eta</span></a> <span class="id" title="var">b</span>)).<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">apply</span> <span class="id" title="var">H'</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">rewrite</span> <a class="idref" href="UniMath.CategoryTheory.Categories.html#id_right"><span class="id" title="definition">id_right</span></a>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">apply</span> <a class="idref" href="UniMath.Foundations.Preamble.html#idpath"><span class="id" title="abbreviation">idpath</span></a>.<br/>
+<span class="id" title="keyword">Qed</span>.<br/>
+
+<br/>
+<span class="id" title="keyword">Lemma</span> <a name="triangle_id_inverse"><span class="id" title="lemma">triangle_id_inverse</span></a> (<span class="id" title="var">a</span> : <a class="idref" href="UniMath.CategoryTheory.equivalences_lemmas.html#from_equiv_to_fully_faithful.A"><span class="id" title="variable">A</span></a>)<br/>
+&nbsp;&nbsp;: <a class="idref" href="UniMath.CategoryTheory.Categories.html#iso_inv_from_iso"><span class="id" title="definition">iso_inv_from_iso</span></a> (<a class="idref" href="UniMath.CategoryTheory.functor_categories.html#functor_on_iso"><span class="id" title="definition">functor_on_iso</span></a> <a class="idref" href="UniMath.CategoryTheory.equivalences_lemmas.html#from_equiv_to_fully_faithful.F"><span class="id" title="variable">F</span></a> (<a class="idref" href="UniMath.CategoryTheory.equivalences_lemmas.html#eta"><span class="id" title="definition">eta</span></a> <a class="idref" href="UniMath.CategoryTheory.equivalences_lemmas.html#a"><span class="id" title="variable">a</span></a>)) <a class="idref" href="UniMath.Foundations.Preamble.html#1c39bf18749e5cc609e83c0a0ba5a372"><span class="id" title="notation">=</span></a> <a class="idref" href="UniMath.CategoryTheory.equivalences_lemmas.html#eps"><span class="id" title="definition">eps</span></a> (<a class="idref" href="UniMath.CategoryTheory.equivalences_lemmas.html#from_equiv_to_fully_faithful.F"><span class="id" title="variable">F</span></a> <a class="idref" href="UniMath.CategoryTheory.equivalences_lemmas.html#a"><span class="id" title="variable">a</span></a>).<br/>
+<span class="id" title="keyword">Proof</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">apply</span> <a class="idref" href="UniMath.CategoryTheory.Categories.html#eq_iso"><span class="id" title="lemma">eq_iso</span></a>. <span class="id" title="tactic">simpl</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="keyword">match</span> <span class="id" title="keyword">goal</span> <span class="id" title="keyword">with</span> [|- ?<span class="id" title="var">x</span> <a class="idref" href="UniMath.Foundations.Preamble.html#1c39bf18749e5cc609e83c0a0ba5a372"><span class="id" title="notation">=</span></a> ?<span class="id" title="var">y</span>] =&gt; <span class="id" title="tactic">transitivity</span> (<span class="id" title="var">x</span> <a class="idref" href="UniMath.CategoryTheory.Categories.html#a93007328e3b775adf2fbefc77c43dac"><span class="id" title="notation">·</span></a> <a class="idref" href="UniMath.CategoryTheory.Categories.html#identity"><span class="id" title="definition">identity</span></a> <span class="id" title="var">_</span>) <span class="id" title="keyword">end</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">apply</span> <a class="idref" href="UniMath.Foundations.PartA.html#pathsinv0"><span class="id" title="definition">pathsinv0</span></a>, <a class="idref" href="UniMath.CategoryTheory.Categories.html#id_right"><span class="id" title="definition">id_right</span></a>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">apply</span> <a class="idref" href="UniMath.CategoryTheory.Categories.html#iso_inv_on_right"><span class="id" title="lemma">iso_inv_on_right</span></a>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">set</span> (<span class="id" title="var">H'</span> := <a class="idref" href="UniMath.CategoryTheory.Adjunctions.html#triangle_id_left_ad"><span class="id" title="definition">triangle_id_left_ad</span></a> (<a class="idref" href="UniMath.Foundations.Preamble.html#pr2"><span class="id" title="projection">pr2</span></a> (<a class="idref" href="UniMath.Foundations.Preamble.html#pr1"><span class="id" title="projection">pr1</span></a> <a class="idref" href="UniMath.CategoryTheory.equivalences_lemmas.html#from_equiv_to_fully_faithful.H"><span class="id" title="variable">H</span></a>)) <span class="id" title="var">a</span>).<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">apply</span> <a class="idref" href="UniMath.Foundations.PartA.html#pathsinv0"><span class="id" title="definition">pathsinv0</span></a>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">apply</span> <span class="id" title="var">H'</span>.<br/>
+<span class="id" title="keyword">Qed</span>.<br/>
+
+<br/>
+<span class="id" title="keyword">Lemma</span> <a name="triangle_id_inverse'"><span class="id" title="lemma">triangle_id_inverse'</span></a> (<span class="id" title="var">a</span> : <a class="idref" href="UniMath.CategoryTheory.equivalences_lemmas.html#from_equiv_to_fully_faithful.A"><span class="id" title="variable">A</span></a>)<br/>
+&nbsp;&nbsp;: <a class="idref" href="UniMath.CategoryTheory.Categories.html#inv_from_iso"><span class="id" title="definition">inv_from_iso</span></a> (<a class="idref" href="UniMath.CategoryTheory.functor_categories.html#functor_on_iso"><span class="id" title="definition">functor_on_iso</span></a> <a class="idref" href="UniMath.CategoryTheory.equivalences_lemmas.html#from_equiv_to_fully_faithful.F"><span class="id" title="variable">F</span></a> (<a class="idref" href="UniMath.CategoryTheory.equivalences_lemmas.html#eta"><span class="id" title="definition">eta</span></a> <a class="idref" href="UniMath.CategoryTheory.equivalences_lemmas.html#a"><span class="id" title="variable">a</span></a>)) <a class="idref" href="UniMath.Foundations.Preamble.html#1c39bf18749e5cc609e83c0a0ba5a372"><span class="id" title="notation">=</span></a> <a class="idref" href="UniMath.CategoryTheory.equivalences_lemmas.html#eps"><span class="id" title="definition">eps</span></a> (<a class="idref" href="UniMath.CategoryTheory.equivalences_lemmas.html#from_equiv_to_fully_faithful.F"><span class="id" title="variable">F</span></a> <a class="idref" href="UniMath.CategoryTheory.equivalences_lemmas.html#a"><span class="id" title="variable">a</span></a>).<br/>
+<span class="id" title="keyword">Proof</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">apply</span> (<a class="idref" href="UniMath.Foundations.PartA.html#base_paths"><span class="id" title="lemma">base_paths</span></a> <span class="id" title="var">_</span> <span class="id" title="var">_</span> (<a class="idref" href="UniMath.CategoryTheory.equivalences_lemmas.html#triangle_id_inverse"><span class="id" title="lemma">triangle_id_inverse</span></a> <span class="id" title="var">a</span>)).<br/>
+<span class="id" title="keyword">Qed</span>.<br/>
+
+<br/>
+<span class="id" title="keyword">Lemma</span> <a name="inverse_is_inverse_2"><span class="id" title="lemma">inverse_is_inverse_2</span></a> <span class="id" title="var">a</span> <span class="id" title="var">b</span> (<span class="id" title="var">g</span> : <a class="idref" href="UniMath.CategoryTheory.equivalences_lemmas.html#from_equiv_to_fully_faithful.F"><span class="id" title="variable">F</span></a> <a class="idref" href="UniMath.CategoryTheory.equivalences_lemmas.html#a"><span class="id" title="variable">a</span></a> <a class="idref" href="UniMath.CategoryTheory.Categories.html#05c8c1ce7d2d8559287cc88a3a5efc73"><span class="id" title="notation">--&gt;</span></a> <a class="idref" href="UniMath.CategoryTheory.equivalences_lemmas.html#from_equiv_to_fully_faithful.F"><span class="id" title="variable">F</span></a> <a class="idref" href="UniMath.CategoryTheory.equivalences_lemmas.html#b"><span class="id" title="variable">b</span></a>) : <a class="idref" href="UniMath.CategoryTheory.functor_categories.html#f9d39e9abcf2172e261db5a53b8f1205"><span class="id" title="notation">#</span></a><a class="idref" href="UniMath.CategoryTheory.equivalences_lemmas.html#from_equiv_to_fully_faithful.F"><span class="id" title="variable">F</span></a> (<a class="idref" href="UniMath.CategoryTheory.equivalences_lemmas.html#inverse"><span class="id" title="definition">inverse</span></a> <a class="idref" href="UniMath.CategoryTheory.equivalences_lemmas.html#g"><span class="id" title="variable">g</span></a>) <a class="idref" href="UniMath.Foundations.Preamble.html#1c39bf18749e5cc609e83c0a0ba5a372"><span class="id" title="notation">=</span></a> <a class="idref" href="UniMath.CategoryTheory.equivalences_lemmas.html#g"><span class="id" title="variable">g</span></a>.<br/>
+<span class="id" title="keyword">Proof</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">unfold</span> <a class="idref" href="UniMath.CategoryTheory.equivalences_lemmas.html#inverse"><span class="id" title="definition">inverse</span></a>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">repeat</span> <span class="id" title="tactic">rewrite</span> <a class="idref" href="UniMath.CategoryTheory.functor_categories.html#functor_comp"><span class="id" title="definition">functor_comp</span></a>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">rewrite</span> <a class="idref" href="UniMath.CategoryTheory.functor_categories.html#functor_on_inv_from_iso"><span class="id" title="lemma">functor_on_inv_from_iso</span></a>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">simpl</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">rewrite</span> <a class="idref" href="UniMath.CategoryTheory.equivalences_lemmas.html#triangle_id_inverse'"><span class="id" title="lemma">triangle_id_inverse'</span></a>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">rewrite</span> &lt;- <a class="idref" href="UniMath.CategoryTheory.Categories.html#assoc"><span class="id" title="definition">assoc</span></a>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">set</span> (<span class="id" title="var">H'</span> := <a class="idref" href="UniMath.CategoryTheory.functor_categories.html#nat_trans_ax"><span class="id" title="definition">nat_trans_ax</span></a>  (<a class="idref" href="UniMath.CategoryTheory.Adjunctions.html#adjcounit"><span class="id" title="definition">adjcounit</span></a> (<a class="idref" href="UniMath.Foundations.Preamble.html#pr1"><span class="id" title="projection">pr1</span></a> <a class="idref" href="UniMath.CategoryTheory.equivalences_lemmas.html#from_equiv_to_fully_faithful.H"><span class="id" title="variable">H</span></a>))).<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">simpl</span> <span class="id" title="keyword">in</span> <span class="id" title="var">H'</span>; <span class="id" title="tactic">rewrite</span> <span class="id" title="var">H'</span>; <span class="id" title="tactic">clear</span> <span class="id" title="var">H'</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">rewrite</span> <a class="idref" href="UniMath.CategoryTheory.Categories.html#assoc"><span class="id" title="definition">assoc</span></a>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">set</span> (<span class="id" title="var">H'</span> := <a class="idref" href="UniMath.Foundations.PartA.html#pathsinv0"><span class="id" title="definition">pathsinv0</span></a> (<a class="idref" href="UniMath.CategoryTheory.Adjunctions.html#triangle_id_left_ad"><span class="id" title="definition">triangle_id_left_ad</span></a> (<a class="idref" href="UniMath.Foundations.Preamble.html#pr2"><span class="id" title="projection">pr2</span></a> (<a class="idref" href="UniMath.Foundations.Preamble.html#pr1"><span class="id" title="projection">pr1</span></a> <a class="idref" href="UniMath.CategoryTheory.equivalences_lemmas.html#from_equiv_to_fully_faithful.H"><span class="id" title="variable">H</span></a>)) <span class="id" title="var">a</span>)).<br/>
+&nbsp;&nbsp;<span class="id" title="keyword">match</span> <span class="id" title="keyword">goal</span> <span class="id" title="keyword">with</span> [|- ?<span class="id" title="var">f</span> <a class="idref" href="UniMath.CategoryTheory.Categories.html#a93007328e3b775adf2fbefc77c43dac"><span class="id" title="notation">·</span></a> ?<span class="id" title="var">g</span> <a class="idref" href="UniMath.Foundations.Preamble.html#1c39bf18749e5cc609e83c0a0ba5a372"><span class="id" title="notation">=</span></a> ?<span class="id" title="var">h</span>] =&gt; <span class="id" title="tactic">assert</span> (<span class="id" title="var">H''</span> : <a class="idref" href="UniMath.CategoryTheory.Categories.html#identity"><span class="id" title="definition">identity</span></a> <span class="id" title="var">_</span> <a class="idref" href="UniMath.Foundations.Preamble.html#1c39bf18749e5cc609e83c0a0ba5a372"><span class="id" title="notation">=</span></a> <span class="id" title="var">f</span>) <span class="id" title="keyword">end</span>.<br/>
+&nbsp;&nbsp;- <span class="id" title="tactic">simpl</span> <span class="id" title="keyword">in</span> *; <span class="id" title="tactic">apply</span> <span class="id" title="var">H'</span>.<br/>
+&nbsp;&nbsp;- <span class="id" title="tactic">rewrite</span> &lt;- <span class="id" title="var">H''</span>. <span class="id" title="tactic">rewrite</span> <a class="idref" href="UniMath.CategoryTheory.Categories.html#id_left"><span class="id" title="definition">id_left</span></a>. <span class="id" title="tactic">apply</span> <a class="idref" href="UniMath.Foundations.Preamble.html#idpath"><span class="id" title="abbreviation">idpath</span></a>.<br/>
+<span class="id" title="keyword">Qed</span>.<br/>
+
+<br/>
+<span class="id" title="keyword">Lemma</span> <a name="fully_faithful_from_equivalence"><span class="id" title="lemma">fully_faithful_from_equivalence</span></a> : <a class="idref" href="UniMath.CategoryTheory.functor_categories.html#fully_faithful"><span class="id" title="definition">fully_faithful</span></a> <a class="idref" href="UniMath.CategoryTheory.equivalences_lemmas.html#from_equiv_to_fully_faithful.F"><span class="id" title="variable">F</span></a>.<br/>
+<span class="id" title="keyword">Proof</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">unfold</span> <a class="idref" href="UniMath.CategoryTheory.functor_categories.html#fully_faithful"><span class="id" title="definition">fully_faithful</span></a>. <span class="id" title="tactic">intros</span> <span class="id" title="var">a</span> <span class="id" title="var">b</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">apply</span> (<a class="idref" href="UniMath.Foundations.PartA.html#gradth"><span class="id" title="lemma">gradth</span></a> <span class="id" title="var">_</span> (@<a class="idref" href="UniMath.CategoryTheory.equivalences_lemmas.html#inverse"><span class="id" title="definition">inverse</span></a> <span class="id" title="var">a</span> <span class="id" title="var">b</span>)).<br/>
+&nbsp;&nbsp;- <span class="id" title="tactic">apply</span> <a class="idref" href="UniMath.CategoryTheory.equivalences_lemmas.html#inverse_is_inverse_1"><span class="id" title="lemma">inverse_is_inverse_1</span></a>.<br/>
+&nbsp;&nbsp;- <span class="id" title="tactic">apply</span> <a class="idref" href="UniMath.CategoryTheory.equivalences_lemmas.html#inverse_is_inverse_2"><span class="id" title="lemma">inverse_is_inverse_2</span></a>.<br/>
+<span class="id" title="keyword">Qed</span>.<br/>
+
+<br/>
+<span class="id" title="keyword">End</span> <a class="idref" href="UniMath.CategoryTheory.equivalences_lemmas.html#from_equiv_to_fully_faithful"><span class="id" title="section">from_equiv_to_fully_faithful</span></a>.<br/>
+</div>
+</div>
+
+<div id="footer">
+<hr/><a href="index.html">Index</a><hr/>This page has been generated by <a href="http://coq.inria.fr/">coqdoc</a>
+</div>
+
+</div>
+
+</body>
+</html>
